@@ -3,6 +3,7 @@ import { SearchOptions } from "@types";
 import { instance } from "api/api.config";
 import { BASE_URL } from "constants";
 
+
 export const search = createAsyncThunk<null, SearchOptions>(
   "search/histogramSearch",
   async (params) => {

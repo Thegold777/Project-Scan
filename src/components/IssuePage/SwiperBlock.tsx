@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import styled from "styled-components";
 
+
 const SwiperBlock: FC = () => {
   return (
     <SwiperStyle>
@@ -42,6 +43,7 @@ const SwiperBlock: FC = () => {
     </SwiperStyle>
   );
 };
+
 
 const primer = [
   { date: "10.09.2021", num: "1", ber: "2" },
