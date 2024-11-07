@@ -3,8 +3,6 @@ import { IUser, IUserState } from "@types";
 import AuthService from "services/AuthService";
 import UserService from "services/UserService";
 
-
-
 export const login = createAsyncThunk(
   "login/userLogin",
   async (loginData: IUser) => {
@@ -32,6 +30,12 @@ export const info = createAsyncThunk("info/userInfo", async () => {
     throw Error();
   }
 });
+
+export const fetchData = createAsyncThunk("data/fetchData", async () => {
+  const response = await UserService.fetchData();
+  return response.data;
+});
+
 
 const initialState: IUserState = {
   isAuth: !!localStorage.getItem("token"),
@@ -64,6 +68,9 @@ const userSlice = createSlice({
       state.companyLimit = action.payload.companyLimit;
       state.usedCompany = action.payload.usedCompanyCount;
       state.isLoaded = true;
+    });
+    builder.addCase(fetchData.fulfilled, (state, action) => {
+      state.data = action.payload;
     });
   },
 });

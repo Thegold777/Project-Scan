@@ -1,20 +1,31 @@
 export interface IAuthResponse {
   accessToken: string;
-  // ... другие поля, которые вам нужны
+
 }
 
 export interface IUserInfo {
-    // здесь определите необходимые поля
+    usedCompanyCount: number;
+    companyLimit: number;
+  
     id?: number;
     name?: string;
     email?: string;
-    // ... другие поля
+   
 }
 
 export interface SearchOptions {
-  // Добавьте необходимые поля
-  // Например:
+  
   query?: string;
   filters?: Record<string, any>;
-  // ... другие поля
-} 
+  
+}
+
+export interface IUserState {
+  isAuth: boolean;
+  status: string;
+  error: string | null;
+  usedCompany: number;
+  companyLimit: number;
+  isLoaded: boolean;
+  fetchedData: null;
+}
