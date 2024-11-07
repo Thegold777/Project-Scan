@@ -1,5 +1,5 @@
-import { IUserInfo } from "@types";
-import { instance } from "api/api.config";
+import { IUserInfo } from "../types";
+import { instance } from "../api/api.config";
 import { AxiosResponse } from "axios";
 
 export default class UserService {

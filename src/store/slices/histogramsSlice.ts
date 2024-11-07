@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { SearchOptions } from "@types";
-import { instance } from "api/api.config";
-import { BASE_URL } from "constants";
+import { SearchOptions } from "../../types";
+import { instance } from "../../api/api.config";
+import { BASE_URL } from "../../constants/api";
 
 
 export const search = createAsyncThunk<null, SearchOptions>(

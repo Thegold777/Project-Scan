@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
-import { IAuthResponse } from "@types";
-import { instance } from "api/api.config";
+import { IAuthResponse } from "../types";
+import { instance } from "../api/api.config";
 
 
 export default class AuthService {

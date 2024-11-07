@@ -3,7 +3,7 @@ import Footer from "components/Footer";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { theme } from "./constants";
 import Router from "routes/Router";
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useState, useEffect } from "react";
 
 const App: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,11 +12,19 @@ const App: FC = () => {
     setIsOpen((prev) => !prev);
   }, []);
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 810) {
-      setIsOpen(false);
-    }
-  });
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 810) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>

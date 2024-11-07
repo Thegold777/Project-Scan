@@ -4,6 +4,7 @@ import AuthService from "services/AuthService";
 import UserService from "services/UserService";
 
 
+
 export const login = createAsyncThunk(
   "login/userLogin",
   async (loginData: IUser) => {
@@ -26,7 +27,7 @@ export const info = createAsyncThunk("info/userInfo", async () => {
   try {
     const { data } = await UserService.fetchUsers();
 
-    return data.eventFiltersInfo;
+    return data;
   } catch (error) {
     throw Error();
   }
