@@ -12,7 +12,12 @@ export const search = createAsyncThunk<null, SearchOptions>(
 
       const { data } = await instance.post(
         `${BASE_URL}/api/v1/objectsearch/histograms`,
-        JSON.stringify(params)
+        JSON.stringify(params),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
       );
 
       console.log("data", data);

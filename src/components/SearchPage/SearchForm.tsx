@@ -40,10 +40,8 @@ const SearchForm: FC = () => {
 
     dispatch(
       search({
-        issueDateInterval: {
-          startDate: "2019-01-01T00:00:00+03:00",
-          endDate: "2022-08-31T23:59:59+03:00",
-        },
+        startDate: data.startDate,
+        endDate: data.endDate,
         searchContext: {
           targetSearchEntitiesContext: {
             targetSearchEntities: [
@@ -124,7 +122,7 @@ const SearchForm: FC = () => {
                 className="select"
                 {...field}
                 options={options}
-                placeholder="Выб��рите тональность"
+                placeholder="Выбрите тональность"
               />
             )}
           />
