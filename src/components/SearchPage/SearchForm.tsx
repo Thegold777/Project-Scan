@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import { search } from "store/slices/histogramsSlice";
 import { AppDispatch } from "store/store";
@@ -34,6 +35,7 @@ const SearchForm: FC = () => {
   const { register, control, handleSubmit } = useForm<ISearchFields>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<ISearchFields> = (data): void => {
     const startDate = new Date(data.startDate).toISOString();
@@ -78,10 +80,7 @@ const SearchForm: FC = () => {
             or: [],
             not: [],
           },
-          dateRange: {
-            start: data.startDate,
-            end: data.endDate,
-          },
+          
         },
         searchArea: {
           includedSources: [],
@@ -102,6 +101,9 @@ const SearchForm: FC = () => {
         histogramTypes: ["totalDocuments", "riskFactors"],
       })
     );
+
+    navigate("/issue");
+    
      };
 
   return (
