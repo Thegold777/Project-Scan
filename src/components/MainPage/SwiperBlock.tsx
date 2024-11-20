@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { sliderCarts } from "constants";
+import { sliderCarts } from "../../constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -23,7 +23,7 @@ const SwiperBlock: FC = () => {
         modules={[Navigation]}
         breakpoints={breakpoints}
       >
-        {sliderCarts.map((slide: { id: string; img: string; text: string }) => (
+        {sliderCarts.map((slide: { id: number; img: string; text: string }) => (
           <SwiperSlide key={slide.id}>
             <img src={slide.img} alt="slide_img" />
             <p>{slide.text}</p>

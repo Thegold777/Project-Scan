@@ -53,11 +53,13 @@ const Header: FC<IProps> = ({ isOpen, setIsOpen }) => {
 
             <div className="user-info" data-open={isOpen}>
               <div>
-                <p>Evgeny</p>
+                <p>Алексей А.</p>
                 <button onClick={() => deAuth()}>Выйти</button>
               </div>
-              
-            </div>
+              <picture>
+                <img src="/public/images/icon.png" alt="icon" />
+              </picture>
+              </div>
           </div>
         ) : (
           <div className="sign" data-open={isOpen} onClick={() => setIsOpen()}>

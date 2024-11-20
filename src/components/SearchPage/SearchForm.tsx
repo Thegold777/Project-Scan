@@ -36,12 +36,17 @@ const SearchForm: FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const onSubmit: SubmitHandler<ISearchFields> = (data): void => {
-    console.log(data.startDate);
+    const startDate = new Date(data.startDate).toISOString();
+    const endDate = new Date(data.endDate).toISOString();
+    console.log(startDate);
+    console.log(endDate);
 
     dispatch(
       search({
-        startDate: data.startDate,
-        endDate: data.endDate,
+        issueDateInterval: {
+          startDate: startDate,
+          endDate: endDate,
+        },
         searchContext: {
           targetSearchEntitiesContext: {
             targetSearchEntities: [
@@ -73,6 +78,10 @@ const SearchForm: FC = () => {
             or: [],
             not: [],
           },
+          dateRange: {
+            start: data.startDate,
+            end: data.endDate,
+          },
         },
         searchArea: {
           includedSources: [],
@@ -93,7 +102,7 @@ const SearchForm: FC = () => {
         histogramTypes: ["totalDocuments", "riskFactors"],
       })
     );
-  };
+     };
 
   return (
     <SearchFormStyle onSubmit={handleSubmit(onSubmit)}>
