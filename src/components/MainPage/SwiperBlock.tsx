@@ -23,7 +23,7 @@ const SwiperBlock: FC = () => {
         modules={[Navigation]}
         breakpoints={breakpoints}
       >
-        {sliderCarts.map((slide) => (
+        {sliderCarts.map((slide: { id: string; img: string; text: string }) => (
           <SwiperSlide key={slide.id}>
             <img src={slide.img} alt="slide_img" />
             <p>{slide.text}</p>
